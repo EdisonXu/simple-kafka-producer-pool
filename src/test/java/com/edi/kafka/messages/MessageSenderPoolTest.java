@@ -26,10 +26,10 @@ public class MessageSenderPoolTest {
 								new ZkHosts("10.1.110.24"));*/
 			long mid = System.currentTimeMillis();
 			System.out.println("Init sender cost: " + (mid-begin));
-			MessageDecoder<String> stringDecoder = new MessageDecoder<String>() {
+			MessageEncoder<String> stringEncoder = new MessageEncoder<String>() {
 
 				@Override
-				public byte[] decode(String msg) {
+				public byte[] encode(String msg) {
 					byte[] ret = null;
 					try {
 						msg.getBytes("UTF-8");
@@ -43,7 +43,7 @@ public class MessageSenderPoolTest {
 			for(int i=0;i<20;i++)
 			{
 				MessageSender sender = pool.getSender(2000);
-				sender.send(String.valueOf(i), stringDecoder);
+				sender.send(String.valueOf(i), stringEncoder);
 				sender.close();
 			}
 			long end = System.currentTimeMillis();
@@ -73,10 +73,10 @@ public class MessageSenderPoolTest {
 								new ZkHosts("10.1.110.24"));*/
 			long mid = System.currentTimeMillis();
 			System.out.println("Init sender cost: " + (mid-begin));
-			MessageDecoder<String> stringDecoder = new MessageDecoder<String>() {
+			MessageEncoder<String> stringEncoder = new MessageEncoder<String>() {
 
 				@Override
-				public byte[] decode(String msg) {
+				public byte[] encode(String msg) {
 					byte[] ret = null;
 					try {
 						msg.getBytes("UTF-8");
@@ -90,7 +90,7 @@ public class MessageSenderPoolTest {
 			for(int i=0;i<20;i++)
 			{
 				MessageSender sender = pool.getSender(2000);
-				sender.send(String.valueOf(i), stringDecoder);
+				sender.send(String.valueOf(i), stringEncoder);
 				sender.close();
 			}
 			long end = System.currentTimeMillis();

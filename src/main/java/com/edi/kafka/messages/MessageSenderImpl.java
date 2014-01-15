@@ -31,9 +31,9 @@ public class MessageSenderImpl implements MessageSender{
 		this.producer.send(data);
 	}
 	
-	public <T> void send(T msg, MessageDecoder<T> decoder)
+	public <T> void send(T msg, MessageEncoder<T> decoder)
 	{
-		byte[] decoded = decoder.decode(msg);
+		byte[] decoded = decoder.encode(msg);
 		KeyedMessage<String, byte[]> data = new KeyedMessage<String, byte[]>(topic, decoded);
 		this.producer.send(data);
 	}
