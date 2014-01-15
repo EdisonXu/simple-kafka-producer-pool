@@ -1,6 +1,14 @@
+*~
+*.bak
+*.swp
+*.orig
+*.o
+*.a
 *.class
-
-# Package Files #
 *.jar
-*.war
 *.ear
+*.rar
+.project
+.classpath
+.settings
+target
