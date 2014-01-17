@@ -18,9 +18,12 @@ public class MessageSenderPoolTest {
 	public void testDefault() {
 		long begin = System.currentTimeMillis();
 		try {
+			// specify the broker ip directly
 			MessageSenderPool pool = new MessageSenderPool(Runtime.getRuntime().availableProcessors()*2+1, 
 								"test", 
 								"10.1.110.21:9092,10.1.110.22:9092,10.1.110.24:9092");
+			
+			// specify the broker from zookeeper
 			/*MessageSenderPool pool = new MessageSenderPool(Runtime.getRuntime().availableProcessors()*2+1,
 								"test", 
 								new ZkHosts("10.1.110.24"));*/
@@ -65,9 +68,13 @@ public class MessageSenderPoolTest {
 		try {
 			Properties p = new Properties();
 			p.setProperty(KafkaConstants.PRODUCER_TYPE, "async");
+			
+			// specify the broker ip directly
 			MessageSenderPool pool = new MessageSenderPool(Runtime.getRuntime().availableProcessors()*2+1, 
 								"test", 
 								"10.1.110.21:9092,10.1.110.22:9092,10.1.110.24:9092");
+			
+			// specify the broker from zookeeper
 			/*MessageSenderPool pool = new MessageSenderPool(Runtime.getRuntime().availableProcessors()*2+1,
 								"test", 
 								new ZkHosts("10.1.110.24"));*/
