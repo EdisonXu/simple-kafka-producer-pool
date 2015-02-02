@@ -35,7 +35,7 @@ public class MessageSenderPoolTest {
 				public byte[] encode(String msg) {
 					byte[] ret = null;
 					try {
-						msg.getBytes("UTF-8");
+						ret = msg.getBytes("UTF-8");
 					} catch (UnsupportedEncodingException e) {
 						e.printStackTrace();
 					}
@@ -86,7 +86,7 @@ public class MessageSenderPoolTest {
 				public byte[] encode(String msg) {
 					byte[] ret = null;
 					try {
-						msg.getBytes("UTF-8");
+						ret = msg.getBytes("UTF-8");
 					} catch (UnsupportedEncodingException e) {
 						e.printStackTrace();
 					}
